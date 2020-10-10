@@ -60,7 +60,7 @@ class Snake(object):
 
     def move(self):
         # TODO: See section 1, "Move the snake!". You will be revisiting this section a few times.
-        global  APPLE
+        global APPLE
         increment = DIR[self.direction]
         increment_x = increment[0]
         increment_y = increment[1]
