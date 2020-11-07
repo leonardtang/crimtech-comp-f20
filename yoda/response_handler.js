@@ -19,7 +19,59 @@ let std_quotes = ["Patience you must have, my young padawan.",
 "Difficult to see. Always in motion is the future."
 ];
 
+var random_images_array = ['cute-dark.jpg','cute-force.jpg','cute-std.jpg','regular-dark.jpg','regular-force.jpg', 'regular-std.jpg'] 
+function getRandomImage(imgAr) {
+    var babyAr = imgAr.slice(0,3)
+    var forceAr = []
+    var forceDarkAr = ['cute-dark.jpg', 'regular-dark.jpg']
+    for (i = 0; i < imgAr.length; i++) {
+        if (imgAr[i].includes("force")) {
+            forceAr.push(imgAr[i])
+        }
+    }
+
+    var num = Math.floor( Math.random() * imgAr.length );
+    var img = imgAr[ num ];
+    if (document.getElementById("myText").value.includes("cute") || document.getElementById("myText").value.includes("baby")) {
+        var num = Math.floor( Math.random() * babyAr.length );
+        img = babyAr[num];
+    }
+    else if (document.getElementById("myText").value.includes("force") && document.getElementById("myText").value.includes("dark") ) {
+        var num = Math.floor( Math.random() * forceDarkAr.length );
+        img = forceDarkAr[num];
+    }
+    else if (document.getElementById("myText").value.includes("force")) {
+        var num = Math.floor( Math.random() * forceAr.length );
+        img = forceAr[num];
+    }
+    return 'img/'+img
+}
+
 function respond() {
     // Your Code Here
     console.log("Hello World!");
+    console.log(document.getElementById("par"));
+    img = getRandomImage(random_images_array)
+    document.getElementById("photo").src= img;
+    quote = ""
+    if (img.includes("baby") || img.includes("cute")) {
+        hm = "h".concat("m".repeat(Math.floor(Math.random()*15)));
+        quote = "Yes, ".concat(hm)
+    }
+    else {
+        quote = std_quotes[Math.floor(Math.random() * std_quotes.length)];
+    }
+
+    console.log(quote)
+    document.getElementById("par").innerHTML = quote;    
 }
+
+var input = document.getElementById('myText')
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("responseButton").click();
+    }
+});

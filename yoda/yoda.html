@@ -1,9 +1,22 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        
+        <title> Yoda! </title>    
+        <link rel='shortcut icon' type='image/png' href='img/favicon.ico'>   
     </head>
     <body>
-
+        <center>
+            <img id="photo" src="img/cute-dark.jpg" alt="Cute Dark Yoda", height=500>
+            <p id="par">"To yoda chat I welcome you. Yes, hmmmmm."</p>
+            <label>Make Yoda Talk: </label>
+            <input type = "text"
+                 id = "myText"
+                 value = "Enter" />
+            <button id = "responseButton" onclick="respond()"> Respond </button>
+        </center>
     </body>
+    <script src="response_handler.js">
+        // document.getElementById("myBtn").onclick = respond;
+    </script>
 </html>
