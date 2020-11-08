@@ -6,7 +6,7 @@ Written by Richard "Rick" Xu.
 ## A. Pull from upstream
 We have another lab, so you will need to pull from remote again! So, run the following command:
 ```
-git pull remote master
+git pull upstream master
 ```
 
 If you get any merge conflicts, you need to edit the files where the conflict occurs, following git's instructions. Afterwards, run `git commit` to fix the merge conflict.
